@@ -39,4 +39,24 @@
         .btn-green { background: var(--neon-green); } .btn-blue { background: var(--neon-blue); } .btn-purple { background: var(--neon-purple); grid-column: span 2; }
     </style>
 </head>
+<body>
+    <div id="overlay">
+        <h1 style="color:var(--neon-blue); text-shadow:0 0 20px var(--neon-blue);">STRATEGIA V1.1</h1>
+        <button class="menu-btn" onclick="start('easy')">ASAN</button>
+        <button class="menu-btn" onclick="start('normal')">NORMAL</button>
+        <button class="menu-btn" onclick="start('hard')">ÇƏTİN</button>
+    </div>
+    <div id="status-bar" style="text-align:center; color:var(--neon-blue); margin-bottom:10px;">HAZIRDIR</div>
+    <div class="stats-grid">
+        <div class="panel">QIZIL<span id="pGold" class="val">50</span></div>
+        <div class="panel">PİYADA<span id="pInf" class="val">0</span></div>
+        <div class="panel">TANK<span id="pTank" class="val">0</span></div>
+        <div class="panel">ELM<span id="pSci" class="val" style="color:var(--neon-purple)">0</span></div>
+    </div>
+    <div class="map" id="gameMap"></div>
+    <div class="controls">
+        <button class="btn btn-green" onclick="buyInf()">PİYADA (20Q)</button>
+        <button class="btn btn-blue" onclick="buyTank()">TANK (100Q)</button>
+        <button class="btn btn-purple" onclick="upgradeTech()" id="b-tech">TEXNOLOGİYA (+40 ELM)</button>
+    </div>
     
