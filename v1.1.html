@@ -76,4 +76,27 @@
                 document.getElementById('pInf').innerText = inf; document.getElementById('pTank').innerText = tanks;
             }, 1000); enemyAI();
         }
-            
+                function buyInf() { if(gold >= 20) { gold -= 20; inf += 12; } }
+        function buyTank() { if(gold >= 100) { gold -= 100; tanks += 1; } }
+        function upgradeTech() { let c = tech * 40; if(sci >= c) { sci -= c; tech++; document.getElementById('status-bar').innerText = "TEXNOLOGİYA SƏVİYYƏ " + tech; } }
+        function attack(el) {
+            if(isOver || el.classList.contains('player')) return;
+            let power = inf + (tanks * 20); if(power >= config[diff].cost) {
+                inf -= Math.floor(config[diff].cost/2); provs++; el.classList.replace('enemy', 'player'); el.innerText = "BİZİM";
+                if(provs === 9) { alert("ZƏFƏR!"); location.reload(); }
+            }
+        }
+        function enemyAI() {
+            setTimeout(() => {
+                let owned = document.querySelectorAll('.player');
+                if(!isOver && Math.random() > 0.8 && owned.length > 1) {
+                    let targets = Array.from(owned).filter(t => t.id !== 'p4');
+                    if(targets.length > 0) { let t = targets[Math.floor(Math.random()*targets.length)]; t.classList.replace('player', 'enemy'); t.innerText = "DÜŞMƏN"; provs--; }
+                }
+                enemyAI();
+            }, config[diff].speed);
+        }
+    </script>
+</body>
+</html>
+
