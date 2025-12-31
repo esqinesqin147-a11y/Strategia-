@@ -27,4 +27,16 @@
             background: rgba(0, 210, 255, 0.15); color: white; font-weight: bold;
             border-radius: 6px; cursor: pointer;
         }
-      
+              .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 15px 0; max-width: 450px; margin-left: auto; margin-right: auto; }
+        .panel { background: var(--panel); border: 1px solid rgba(0, 210, 255, 0.4); padding: 10px 5px; border-radius: 8px; text-align: center; font-size: 11px; }
+        .val { display: block; font-size: 18px; font-weight: bold; color: var(--neon-blue); }
+        .map { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 380px; margin: 25px auto; }
+        .province { aspect-ratio: 1/1; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 11px; font-weight: bold; transition: 0.3s; }
+        .player { border: 2px solid var(--neon-green) !important; box-shadow: 0 0 15px var(--neon-green); }
+        .enemy { border: 1px solid var(--neon-red) !important; }
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 450px; margin: 15px auto; }
+        .btn { padding: 16px; border: none; border-radius: 8px; font-weight: bold; color: white; cursor: pointer; text-transform: uppercase; }
+        .btn-green { background: var(--neon-green); } .btn-blue { background: var(--neon-blue); } .btn-purple { background: var(--neon-purple); grid-column: span 2; }
+    </style>
+</head>
+    
