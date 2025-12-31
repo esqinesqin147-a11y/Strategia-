@@ -59,4 +59,21 @@
         <button class="btn btn-blue" onclick="buyTank()">TANK (100Q)</button>
         <button class="btn btn-purple" onclick="upgradeTech()" id="b-tech">TEXNOLOGİYA (+40 ELM)</button>
     </div>
-    
+        <script>
+        let gold = 50, inf = 0, tanks = 0, sci = 0, provs = 1, tech = 1, isOver = false, diff = 'normal';
+        const config = { easy: { speed: 12000, income: 6, cost: 20 }, normal: { speed: 8500, income: 4, cost: 30 }, hard: { speed: 5000, income: 2, cost: 45 } };
+        function createMap() {
+            const map = document.getElementById('gameMap');
+            for(let i=0; i<9; i++) {
+                let status = (i === 4) ? 'player' : 'enemy';
+                map.innerHTML += `<div id="p${i}" class="province ${status}" onclick="attack(this)">${status === 'player' ? 'PAYTAXT' : 'ƏYALƏT '+(i+1)}</div>`;
+            }
+        }
+        function start(lvl) {
+            diff = lvl; document.getElementById('overlay').style.display = 'none'; createMap();
+            setInterval(() => { if(isOver) return; gold += (provs * config[diff].income); sci += (provs * 1.5);
+                document.getElementById('pGold').innerText = Math.floor(gold); document.getElementById('pSci').innerText = Math.floor(sci);
+                document.getElementById('pInf').innerText = inf; document.getElementById('pTank').innerText = tanks;
+            }, 1000); enemyAI();
+        }
+            
